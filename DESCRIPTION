@@ -1,8 +1,8 @@
 Package: eldar
 Title: Misc. Utilities for R from the Star-Folk
-Version: 0.0.1
+Version: 0.0.2
 Date: 2019-02-16
-Authors@R: 
+Authors@R:
     person(given = "Ryan",
            family = "Homer",
            role = c("aut", "cre"),
