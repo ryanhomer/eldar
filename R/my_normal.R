@@ -43,7 +43,7 @@ mn.vline.at <- function(x, mean, sd) {
 mn.shade <- function(mean, sd, x1, x2) {
   mn.vline.at(x1, mean, sd)
   mn.vline.at(x2, mean, sd)
-  x.seq <- seq(x1, x2)
+  x.seq <- seq(x1, x2, by = if (sd >= 1) 1 else (1 * 10^(floor(log10(sd)))) )
   x <- c(x1, x.seq, x2)
   y <- c(0, dnorm(x.seq, mean, sd), 0)
   polygon(x, y, density = 30, angle = 45, col = "grey", border = NA)
@@ -78,7 +78,7 @@ my.normal <- function(
 
   x.val <- function(z) { mean + z * sd }
   x.values <- Map(x.val, seq.int(-num.sd, num.sd))
-  y.max <- dnorm(mean,mean,sd)
+  y.max <- dnorm(mean, mean, sd)
   y.values <- Map(function(x){ y.max * x }, seq(0, 1, by = 0.25))
 
   # the curve
@@ -91,11 +91,8 @@ my.normal <- function(
   abline(h = 0, lwd = 1)
 
   # Label axes
-  if (label.x.axis) { axis(1, at = x.values,labels = x.values) }
-  if (label.y.axis) { axis(2, at = y.values,labels = Map(function(x) { round(x, 3) }, y.values)) }
-
-  # vertical line at mean
-  #abline(v=mean, lty = 2)
+  if (label.x.axis) { axis(1, at = x.values, labels = x.values) }
+  if (label.y.axis) { axis(2, at = y.values, labels = Map(function(x) { round(x, 3) }, y.values)) }
 
   # shaded area
   if (!(missing(x1) && missing(x2))) {
