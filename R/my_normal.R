@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#' Create a vertical line under the curve
+#' Create a vertical line under a Normal Distribution curve created with my.normal
 #'
 #' @param x x-value
 #' @param mean mean
@@ -21,11 +21,14 @@
 #' @importFrom stats dnorm
 #' @importFrom graphics segments
 #' @export
+#' @examples
+#' my.normal(mean = 72, sd = 16)
+#' mn.vline.at(72, mean = 72, sd = 16)
 mn.vline.at <- function(x, mean, sd) {
   segments(x, 0, x, dnorm(x, mean, sd), lty = 2)
 }
 
-#' Draw shaded area under curve
+#' Draw shaded area under Normal Distribution curve created with my.normal
 #'
 #' @param mean mean
 #' @param sd standard deviation
@@ -34,6 +37,9 @@ mn.vline.at <- function(x, mean, sd) {
 #'
 #' @importFrom graphics polygon
 #' @export
+#' @examples
+#' my.normal(mean = 72, sd = 16)
+#' mn.shade(mean = 72, sd = 16, x1 = 80, x2 = 90)
 mn.shade <- function(mean, sd, x1, x2) {
   mn.vline.at(x1, mean, sd)
   mn.vline.at(x2, mean, sd)
@@ -45,7 +51,7 @@ mn.shade <- function(mean, sd, x1, x2) {
 
 #' Quick Normal Distribution plot
 #'
-#' A Normal Distribution plot, nice lables, optional highlighting of a specified region.
+#' A Normal Distribution plot, nice labelled axes, optional highlighting of a specified region.
 #' @param mean mean
 #' @param sd standard deviation
 #' @param x1 left x-value for shaded region (upper tail if x2 not specified)
