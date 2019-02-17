@@ -12,6 +12,6 @@ To quickly illustrate our variable of interest, we can quickly show this with on
 
     > my.normal(mean = 5.2, sd = 0.08, x1 = 5.3)
 
-![my.normal example](my_normal_example.png)
+![my.normal example](https://github.com/ryanhomer/eldar/blob/e983a98d182fc42ea7ff5278d6cf202e18c8c0ff/my_normal_example.png)
 
 You can also add your own vertical lines with `mn.vline.at` and additional shaded regions with `mn.shade`. See the man pages in R for more info.

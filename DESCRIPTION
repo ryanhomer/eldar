@@ -6,7 +6,7 @@ Authors@R:
     person(given = "Ryan",
            family = "Homer",
            role = c("aut", "cre"),
-           email = "ryan.homer@gmail.com")
+           email = "ryanhomer@gmail.com")
 Description: Utilities that make life easier when working in R. Not enough utilities yet to break out into specialized packages.
 Depends:
   graphics,
