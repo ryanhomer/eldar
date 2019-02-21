@@ -76,7 +76,7 @@ my.normal <- function(
   # We'll only support at least 2 SD from mean; simplifies labelling
   num.sd <- max(2, max.sd.from.mean)
 
-  x.val <- function(z) { mean + z * sd }
+  x.val <- function(z) { round(mean + z * sd, digits = 2) }
   x.values <- Map(x.val, seq.int(-num.sd, num.sd))
   y.max <- dnorm(mean, mean, sd)
   y.values <- Map(function(x){ y.max * x }, seq(0, 1, by = 0.25))
