@@ -43,7 +43,7 @@ mn.vline.at <- function(x, mean, sd) {
 mn.shade <- function(mean, sd, x1, x2) {
   mn.vline.at(x1, mean, sd)
   mn.vline.at(x2, mean, sd)
-  x.seq <- seq(x1, x2, by = if (sd >= 1) 1 else (1 * 10^(floor(log10(sd)))) )
+  x.seq <- seq(x1, x2, by = .1)
   x <- c(x1, x.seq, x2)
   y <- c(0, dnorm(x.seq, mean, sd), 0)
   polygon(x, y, density = 30, angle = 45, col = "grey", border = NA)
